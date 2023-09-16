@@ -100,8 +100,60 @@
         width: 100%;
         margin-top: 2%;
         }        
-        }                
-        </style>
+        }    
+        
+        #btn1:not(:disabled):not(:checked)+span:hover ~ .right_bottom_slider label:nth-of-type(1),
+        #btn2:not(:disabled):not(:checked)+span:hover ~ .right_bottom_slider label:nth-of-type(2),
+        #btn3:not(:disabled):not(:checked)+span:hover ~ .right_bottom_slider label:nth-of-type(3),
+        #btn4:not(:disabled):not(:checked)+span:hover ~ .right_bottom_slider label:nth-of-type(4) {
+        background: #FF97BB;
+        color: #FF97BB;
+        }
+
+        #btn1:not(:disabled):not(:checked):active ~ .right_bottom_slider label:nth-of-type(1),
+        #btn2:not(:disabled):not(:checked):active ~ .right_bottom_slider label:nth-of-type(2),
+        #btn3:not(:disabled):not(:checked):active ~ .right_bottom_slider label:nth-of-type(3),
+        #btn4:not(:disabled):not(:checked):active ~ .right_bottom_slider label:nth-of-type(4) {
+        background: #F19CBB;
+        color: #F19CBB;
+        }
+
+        #btn1:checked ~ .right_bottom_slider label:nth-of-type(1),
+        #btn2:checked ~ .right_bottom_slider label:nth-of-type(2),
+        #btn3:checked ~ .right_bottom_slider label:nth-of-type(3),
+        #btn4:checked ~ .right_bottom_slider label:nth-of-type(4) {
+        background: #BC987E;
+        color: #BC987E;
+        }
+
+        #btn1:checked ~ .left_bottom_slider h3:nth-of-type(1),
+        #btn2:checked ~ .left_bottom_slider h3:nth-of-type(2),
+        #btn3:checked ~ .left_bottom_slider h3:nth-of-type(3),
+        #btn4:checked ~ .left_bottom_slider h3:nth-of-type(4) {
+        display: flex;
+        opacity: 1;
+        animation: animation-name 1s; 
+        }
+        
+        #btn1:checked ~ .carousel .slide1,
+        #btn2:checked ~ .carousel .slide2,
+        #btn3:checked ~ .carousel .slide3,
+        #btn4:checked ~ .carousel .slide4 {
+        display: flex;
+        margin: 0 auto;
+        opacity: 1;
+        animation: animation-name 1s; 
+        }  
+
+        @keyframes animation-name {   
+        0% {     
+            opacity: 0;  
+        } 
+        100% {
+            opacity: 1;
+        }
+        }
+    </style>
 </head>
 <body>
 	<div class="top_slider">
