@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Meme Slider</title>
+
+    <style>
+        body {  
+        background-color: #FAEBD7;
+            max-width: 90vw;
+            margin: 0 auto;    
+            padding: 1%;   
+        }
+        
+        .top_slider {
+        display: flex;
+        width: auto;
+        flex-wrap: wrap;
+        }
+        
+        .top_slider img {
+         width: 100%;
+         object-fit: cover;
+        }
+        
+        .carousel {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        border-radius: 1%;
+        overflow: hidden;
+        margin-bottom: 2%;
+        }
+        
+        .slide {
+        display: none;
+        opacity: 0;
+        animation: animation-name 1s; 
+        }
+        
+        .left_bottom_slider {
+        display: flex;
+        justify-content: flex-start;
+        width: 50%;
+        margin: 0 auto;
+        }
+        
+        .right_bottom_slider {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 50%;
+        }
+        
+        #btn1, #btn2, #btn3, #btn4  {
+        opacity: 0;
+        }
+        
+        .left_bottom_slider h3 {
+        display: none;
+        opacity: 0;
+        animation: animation-name 1s; 
+        font-size: 1rem;
+        }
+        
+        label {
+        width: 1rem;
+        height: 1rem;
+        background: #990066;
+        color: #990066;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-left: 0.5rem;
+        }
+        
+        .right_bottom_slider label:hover {
+        background: #BB945F;
+        color: #BB945F;
+        }
+        
+        @media (max-width:768px) {
+
+        .top_slider {
+        display: flex;
+        flex-direction: column;
+        width: auto;        
+        }
+        
+        .left_bottom_slider {
+        display: flex;
+        order: 4;
+        width: 100%;
+        }
+        
+        .right_bottom_slider {
+        display: flex;
+        order: 3;
+        justify-content: center;
+        width: 100%;
+        margin-top: 2%;
+        }        
+        }    
+        
+        #btn1:not(:disabled):not(:checked)+span:hover ~ .right_bottom_slider label:nth-of-type(1),
+        #btn2:not(:disabled):not(:checked)+span:hover ~ .right_bottom_slider label:nth-of-type(2),
+        #btn3:not(:disabled):not(:checked)+span:hover ~ .right_bottom_slider label:nth-of-type(3),
+        #btn4:not(:disabled):not(:checked)+span:hover ~ .right_bottom_slider label:nth-of-type(4) {
+        background: #FF97BB;
+        color: #FF97BB;
+        }
+
+        #btn1:not(:disabled):not(:checked):active ~ .right_bottom_slider label:nth-of-type(1),
+        #btn2:not(:disabled):not(:checked):active ~ .right_bottom_slider label:nth-of-type(2),
+        #btn3:not(:disabled):not(:checked):active ~ .right_bottom_slider label:nth-of-type(3),
+        #btn4:not(:disabled):not(:checked):active ~ .right_bottom_slider label:nth-of-type(4) {
+        background: #F19CBB;
+        color: #F19CBB;
+        }
+
+        #btn1:checked ~ .right_bottom_slider label:nth-of-type(1),
+        #btn2:checked ~ .right_bottom_slider label:nth-of-type(2),
+        #btn3:checked ~ .right_bottom_slider label:nth-of-type(3),
+        #btn4:checked ~ .right_bottom_slider label:nth-of-type(4) {
+        background: #BC987E;
+        color: #BC987E;
+        }
+
+        #btn1:checked ~ .left_bottom_slider h3:nth-of-type(1),
+        #btn2:checked ~ .left_bottom_slider h3:nth-of-type(2),
+        #btn3:checked ~ .left_bottom_slider h3:nth-of-type(3),
+        #btn4:checked ~ .left_bottom_slider h3:nth-of-type(4) {
+        display: flex;
+        opacity: 1;
+        animation: animation-name 1s; 
+        }
+        
+        #btn1:checked ~ .carousel .slide1,
+        #btn2:checked ~ .carousel .slide2,
+        #btn3:checked ~ .carousel .slide3,
+        #btn4:checked ~ .carousel .slide4 {
+        display: flex;
+        margin: 0 auto;
+        opacity: 1;
+        animation: animation-name 1s; 
+        }  
+
+        @keyframes animation-name {   
+        0% {     
+            opacity: 0;  
+        } 
+        100% {
+            opacity: 1;
+        }
+        }
+    </style>
+</head>
+<body>
+	<div class="top_slider">
+			<input type="radio" name="radio"  id="btn1" checked>
+			<input type="radio" name="radio"  id="btn2">
+			<input type="radio" name="radio"  id="btn3">
+			<input type="radio" name="radio"  id="btn4">
+		<div class="carousel">
+			<div class="slide slide1" id="slide1"><img src="1.jpg" alt="img"></div>
+			<div class="slide slide2" id="slide2"><img src="2.jpg" alt="img"></div>
+			<div class="slide slide3" id="slide3"><img src="3.jpg" alt="img"></div>
+			<div class="slide slide4" id="slide4"><img src="4.jpg" alt="img"></div>
+		</div>
+		<div class="left_bottom_slider">
+			<h3>Ожидаю таску!</h3>	
+			<h3>Читаю таску!</h3>
+			<h3>Доделываю таску!</h3>
+			<h3>Ожидаю результата кросс-чека!</h3>
+		</div>
+		<div class="right_bottom_slider">			
+			<label for="btn1"><span></span></label>
+        		<label for="btn2"><span></span></label>
+        		<label for="btn3"><span></span></label>
+        		<label for="btn4"><span></span></label> 		
+		</div>
+	</div>	
+</body>
+</html>
